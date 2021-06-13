@@ -1,0 +1,41 @@
+{% extends 'base.html'%}
+{% block title %}
+  Register Page
+{% endblock %}
+
+       {% block content %}
+        <body class=" text-center">
+        <div class="container">
+            <img class="mb-4" src="http://sun9-74.userapi.com/c620/g16634960/a_7d315550.jpg" alt="">
+            <h1 class="h3 mb-3 font-weight-normal">
+                Please Create your Account
+            </h1>
+            <br>
+      <form method="POST" class="form-register" style="color:white">
+          {{form.hidden_tag()}}   <!-- this command lets us generate token to protect against attacks-->
+          {{ form.username.label() }} <!-- .label refers us to the forms.py where we set label=username and can change it anytime-->
+          {{form.username(class="form-control",placeholder = "User Name")}}
+
+          {{ form.email_address.label() }} <!-- .label refers us to the forms.py where we set label=username and can change it anytime-->
+          {{form.email_address(class="form-control",placeholder = "Email address")}}
+
+          {{ form.password1.label() }} <!-- .label refers us to the forms.py where we set label=username and can change it anytime-->
+          {{form.password1(class="form-control",placeholder = "Password")}}
+
+          {{ form.password2.label() }} <!-- .label refers us to the forms.py where we set label=username and can change it anytime-->
+          {{form.password2(class="form-control",placeholder = "Confirm Password")}}
+            <br>
+            <br>
+
+           <div class="checkbox mb-3">
+               <h6>Already have an account?</h6>
+               <a class="btn btn-sm btn-secondary" href="{{ url_for('login_page') }}">Login</a>
+            </div>
+
+
+          {{ form.submit(class="btn btn-lg btn-block btn-primary") }} <!-- .label refers us to the forms.py where we set label=username and can change it anytime-->
+
+      </form>
+        </div>
+        </body>
+{% endblock %}
